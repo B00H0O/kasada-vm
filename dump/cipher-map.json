@@ -1,0 +1,6 @@
+{
+  "_comment": "Kasada p.js (j-1.2.430) embedded-string cipher. It is a FORMULA, not a lookup (per umasi nullpt.rs Nike/Kasada writeup). Decode each char code c with: plain = (c & ~63) | ((K * (c & 63)) & 63). K solved = 41 (equals the decoder base f). Inverse multiplier (encode) = 23 (41*23 % 64 == 1). 98% of printable chars map cleanly; this gives the full string table — see crack-strings.mjs / cracked-strings.txt.",
+  "formula": "plain = (c & ~63) | ((41 * (c & 63)) & 63)",
+  "K": 41,
+  "K_inverse_mod64": 23
+}

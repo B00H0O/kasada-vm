@@ -1,0 +1,21 @@
+# deps
+node_modules/
+
+# captured live data — NEVER commit (real tokens, proxy creds, sessions)
+_vm-traces/
+proxies.txt
+*.env
+.env
+dump/minted-token.json
+dump/decomp-real-handshake.json
+dump/decomp-net*.json
+dump/decomp-net*.jsonl
+dump/cd-seed-capture*.json
+dump/cd-seed-candidates*.json
+
+# captured p.js (provide your own)
+**/p.js
+
+# logs / scratch
+*.log
+boot*.log

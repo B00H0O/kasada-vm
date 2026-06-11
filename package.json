@@ -1,0 +1,15 @@
+{
+  "name": "kasada-vm",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Browserless Kasada token research — mints x-kpsdk-ct without a browser; the cd proof-of-work is the open problem.",
+  "scripts": {
+    "spike": "node sandbox-spike.mjs",
+    "mint": "node run-decomp.mjs"
+  },
+  "dependencies": {
+    "happy-dom": "^15.11.7",
+    "impit": "^0.14.1",
+    "regenerator-runtime": "^0.14.1"
+  }
+}
