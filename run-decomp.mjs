@@ -223,6 +223,16 @@ try {
 console.log('\nNETWORK ATTEMPTS:', net.length);
 for (const n of net) { console.log('  ', n.via, n.method, n.url.slice(0, 100), 'bodyLen=' + n.bodyLen); if (n.bodyPreview) console.log('      body:', n.bodyPreview); if (n.headers) console.log('      hdrs:', JSON.stringify(n.headers).slice(0, 200)); }
 
+const tlReq = net.find((n) => /\/tl(\?|$)/.test(n.url) && n.headers && n.headers['x-kpsdk-ct']);
+if (tlReq) {
+  const ct = tlReq.headers['x-kpsdk-ct'];
+  console.log('\n========================================');
+  console.log('x-kpsdk-ct:');
+  console.log(ct);
+  console.log(`\nlength: ${ct.length} chars   /tl fingerprint body: ${tlReq.bodyLen} bytes`);
+  console.log('========================================');
+}
+
 fs.writeFileSync('dump/decomp-net.json', JSON.stringify(net, null, 2));
 if (REAL) {
   console.log('\n=== REAL handshake (proxied to live secureserver) ===');
